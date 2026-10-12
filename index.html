@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="রাসু রহমান অনলাইন সাহিত্য পত্রিকা">
+  <title>রাসু রহমান | অনলাইন সাহিত্য পত্রিকা</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #faf7ef;
+      color: #292e29;
+      font-family: "Noto Serif Bengali", "Nirmala UI",
+                   "Vrinda", serif;
+      line-height: 1.9;
+    }
+
+    header {
+      background: #173e35;
+      color: white;
+      padding: 30px 16px 20px;
+      text-align: center;
+      border-bottom: 4px solid #c9a66b;
+    }
+
+    header .tagline {
+      color: #ead8b4;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    header h1 {
+      font-size: clamp(30px, 8vw, 46px);
+      margin: 4px 0;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 7px;
+      background: #214b40;
+      padding: 10px;
+    }
+
+    nav button {
+      background: transparent;
+      border: 1px solid #8eac9d;
+      color: white;
+      border-radius: 20px;
+      padding: 6px 13px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 14px;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background: #ead8b4;
+      color: #173e35;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 35px 18px;
+      background: #efe7d5;
+    }
+
+    .hero .eyebrow {
+      color: #8a6736;
+      font-size: 13px;
+    }
+
+    .hero h2 {
+      color: #173e35;
+      font-size: 26px;
+      margin: 5px 0 10px;
+    }
+
+    .hero p {
+      max-width: 520px;
+      margin: auto;
+    }
+
+    main {
+      max-width: 850px;
+      margin: auto;
+      padding: 24px 15px 40px;
+    }
+
+    .section-title {
+      color: #173e35;
+      border-bottom: 2px solid #c9a66b;
+      padding-bottom: 8px;
+      margin-top: 8px;
+    }
+
+    .search {
+      width: 100%;
+      padding: 12px 14px;
+      margin: 5px 0 22px;
+      border: 1px solid #c9c4b6;
+      border-radius: 8px;
+      background: white;
+      font: inherit;
+      font-size: 16px;
+    }
+
+    .articles {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .article {
+      background: white;
+      border: 1px solid #e4dece;
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: 0 3px 12px #00000008;
+    }
+
+    .category {
+      color: #936c32;
+      font-size: 13px;
+    }
+
+    .article h3 {
+      color: #173e35;
+      margin: 5px 0;
+      font-size: 21px;
+    }
+
+    .author {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .excerpt {
+      white-space: pre-line;
+    }
+
+    .read-more {
+      border: none;
+      border-radius: 6px;
+      background: #173e35;
+      color: white;
+      padding: 9px 15px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .about {
+      margin-top: 35px;
+      padding: 20px;
+      background: #efe7d5;
+      border-radius: 10px;
+    }
+
+    .about h2 {
+      color: #173e35;
+    }
+
+    footer {
+      background: #173e35;
+      color: #f5ead5;
+      padding: 22px 15px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .empty {
+      padding: 15px;
+      color: #666;
+    }
+
+    @media (min-width: 600px) {
+      .articles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <p class="tagline">অনলাইন সাহিত্য পত্রিকা</p>
+    <h1>রাসু রহমান</h1>
+    <p class="tagline">শব্দে, অনুভবে, মানুষের গল্পে</p>
+  </header>
+
+  <nav aria-label="প্রধান মেনু">
+    <button class="active" data-category="সব">প্রচ্ছদ</button>
+    <button data-category="কবিতা">কবিতা</button>
+    <button data-category="গল্প">গল্প</button>
+    <button data-category="প্রবন্ধ">প্রবন্ধ</button>
+    <button data-category="সব" data-about="true">আমাদের সম্পর্কে</button>
+  </nav>
+
+  <section class="hero">
+    <span class="eyebrow">সাহিত্যের নিজস্ব ঠিকানা</span>
+    <h2>সাহিত্যের পাতায় স্বাগতম</h2>
+    <p>
+      মানুষের জীবন, সমাজ, প্রেম, প্রকৃতি ও
+      অনুভূতির কথা ছড়িয়ে পড়ুক শব্দের মাধ্যমে।
+    </p>
+  </section>
+
+  <main>
+    <h2 class="section-title">সাম্প্রতিক প্রকাশনা</h2>
+
+    <input
+      id="search"
+      class="search"
+      type="search"
+      placeholder="লেখা বা লেখকের নাম লিখে খুঁজুন..."
+      aria-label="লেখা খুঁজুন"
+    >
+
+    <div id="articles" class="articles"></div>
+
+    <section class="about" id="about">
+      <h2>আমাদের সম্পর্কে</h2>
+      <p>
+        রাসু রহমান একটি অনলাইন সাহিত্য পত্রিকা।
+        এখানে কবিতা, গল্প, প্রবন্ধ ও মননশীল
+        লেখার মাধ্যমে মানুষের জীবন ও সমাজকে
+        তুলে ধরার উদ্যোগ নেওয়া হয়েছে।
+      </p>
+      <p>
+        সাহিত্য হোক মানুষের অনুভূতি প্রকাশের
+        মুক্ত প্রাঙ্গণ।
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>রাসু রহমান — অনলাইন সাহিত্য পত্রিকা</p>
+    <p>© <span id="year"></span> সর্বস্বত্ব সংরক্ষিত</p>
+  </footer>
+
+  <script>
+    // এখানে আপনার প্রকাশিত লেখাগুলো যোগ করবেন।
+    const articles = [
+      {
+        title: "অনেক দূরে যেতে হবে",
+        category: "কবিতা",
+        author: "আবদুর রহমান রাসু",
+        excerpt: "সামনে আমার অনেক পথ, অনেক দূর যেতে হবে...",
+        content: `সামনে আমার অনেক পথ, অনেক দূর যেতে হবে
+পাহাড়ি পথ পাড়ি দিয়ে যেতে হবে সমুদ্রের কাছে।
+
+এটি একটি নমুনা পাঠ। এখানে আপনার
+সম্পূর্ণ কবিতাটি বসিয়ে দিন।`
+      },
+      {
+        title: "জনকের দিন রাত্রি",
+        category: "গল্প",
+        author: "আবদুর রহমান রাসু",
+        excerpt: "একটি পরিবারের দিনযাপন ও বাস্তবতার গল্প।",
+        content: `এখানে আপনার অনুগল্পের সম্পূর্ণ লেখা
+যোগ করুন। শিরোনাম ও লেখকের নাম
+নিজের প্রয়োজন অনুযায়ী পরিবর্তন করুন।`
+      },
+      {
+        title: "সাহিত্য ও মানুষের জীবন",
+        category: "প্রবন্ধ",
+        author: "সম্পাদকীয় বিভাগ",
+        excerpt: "জীবন ও সমাজকে বুঝতে সাহিত্যের ভূমিকা।",
+        content: `এখানে আপনার প্রবন্ধের সম্পূর্ণ লেখা
+যোগ করুন। এটি ওয়েবসাইটের নমুনা লেখা।`
+      }
+    ];
+
+    let selectedCategory = "সব";
+    let expandedTitle = "";
+
+    const articleArea = document.getElementById("articles");
+    const searchInput = document.getElementById("search");
+
+    function renderArticles() {
+      const term = searchInput.value.trim().toLowerCase();
+
+      const filtered = articles.filter(article => {
+        const categoryMatch =
+          selectedCategory === "সব" ||
+          article.category === selectedCategory;
+
+        const searchMatch =
+          (article.title + " " + article.author + " " +
+           article.content).toLowerCase().includes(term);
+
+        return categoryMatch && searchMatch;
+      });
+
+      articleArea.innerHTML = "";
+
+      if (filtered.length === 0) {
+        articleArea.innerHTML =
+          '<p class="empty">কোনো লেখা পাওয়া যায়নি।</p>';
+        return;
+      }
+
+      filtered.forEach(article => {
+        const card = document.createElement("article");
+        card.className = "article";
+
+        const category = document.createElement("div");
+        category.className = "category";
+        category.textContent = article.category;
+
+        const title = document.createElement("h3");
+        title.textContent = article.title;
+
+        const author = document.createElement("p");
+        author.className = "author";
+        author.textContent = "লেখক: " + article.author;
+
+        const excerpt = document.createElement("p");
+        excerpt.className = "excerpt";
+        excerpt.textContent =
+          expandedTitle === article.title
+            ? article.content
+            : article.excerpt;
+
+        const button = document.createElement("button");
+        button.className = "read-more";
+        button.textContent =
+          expandedTitle === article.title
+            ? "সংক্ষেপে দেখুন"
+            : "সম্পূর্ণ লেখা পড়ুন";
+
+        button.addEventListener("click", () => {
+          expandedTitle =
+            expandedTitle === article.title
+              ? ""
+              : article.title;
+          renderArticles();
+        });
+
+        card.append(category, title, author, excerpt, button);
+        articleArea.appendChild(card);
+      });
+    }
+
+    document.querySelectorAll("nav button").forEach(button => {
+      button.addEventListener("click", () => {
+        if (button.dataset.about === "true") {
+          document.getElementById("about").scrollIntoView({
+            behavior: "smooth"
+          });
+          return;
+        }
+
+        selectedCategory = button.dataset.category;
+        expandedTitle = "";
+
+        document.querySelectorAll("nav button")
+          .forEach(item => item.classList.remove("active"));
+
+        button.classList.add("active");
+        renderArticles();
+
+        document.querySelector(".section-title").scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    });
+
+    searchInput.addEventListener("input", renderArticles);
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    renderArticles();
+  </script>
+</body>
+</html>
