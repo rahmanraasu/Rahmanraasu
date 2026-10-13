@@ -7,6 +7,82 @@
   <meta name="description" content="আবদুর রহমান রাসু এর সাহিত্য পত্রিকা">
   <title> সাহিত্য অঙ্গন|আবদুর রহমান রাসু এর</title>
 
+/* আধুনিক সাহিত্য পত্রিকার ডিজাইন */
+body {
+  background: #f5f1e8;
+  color: #292d28;
+}
+
+header {
+  padding: 38px 16px 30px;
+  background: linear-gradient(135deg, #12382f, #286052);
+  border-bottom: 5px solid #c7a56b;
+}
+
+header h1 {
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 8px #00000025;
+}
+
+.hero {
+  padding: 48px 20px;
+  background: linear-gradient(135deg, #eee4d0, #faf7ef);
+}
+
+.hero h2 {
+  line-height: 1.6;
+}
+
+main {
+  max-width: 1000px;
+  padding: 30px 18px 48px;
+}
+
+.section-title {
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.article {
+  border: 1px solid #e6ddcc;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 5px 18px #3327190d;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.article h3 {
+  line-height: 1.6;
+}
+
+.read-more {
+  border-radius: 24px;
+  padding: 10px 18px;
+  background: #205044;
+}
+
+.search {
+  border-radius: 24px;
+  padding: 14px 18px;
+}
+
+.about {
+  border: 1px solid #e6ddcc;
+  border-radius: 14px;
+  padding: 26px;
+}
+
+footer {
+  border-top: 4px solid #c7a56b;
+  padding: 30px 15px;
+}
+
+@media (min-width: 600px) {
+  .articles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
   <style>
     * {
       box-sizing: border-box;
