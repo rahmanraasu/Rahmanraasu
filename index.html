@@ -4,105 +4,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="আবদুর রহমান রাসু এর সাহিত্য পত্রিকা">
-  <title> সাহিত্য অঙ্গন|আবদুর রহমান রাসু এর</title>
+  <meta name="description" content="আবদুর রহমান রাসুর সাহিত্য পত্রিকা">
+  <meta name="theme-color" content="#173e35">
+  <title>সাহিত্য অঙ্গন | আবদুর রহমান রাসু</title>
 
-/* আধুনিক সাহিত্য পত্রিকার ডিজাইন */
-body {
-  background: #f5f1e8;
-  color: #292d28;
-}
-
-header {
-  padding: 38px 16px 30px;
-  background: linear-gradient(135deg, #12382f, #286052);
-  border-bottom: 5px solid #c7a56b;
-}
-
-header h1 {
-  letter-spacing: 1.5px;
-  text-shadow: 0 2px 8px #00000025;
-}
-
-.hero {
-  padding: 48px 20px;
-  background: linear-gradient(135deg, #eee4d0, #faf7ef);
-}
-
-.hero h2 {
-  line-height: 1.6;
-}
-
-main {
-  max-width: 1000px;
-  padding: 30px 18px 48px;
-}
-
-.section-title {
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-}
-
-.article {
-  border: 1px solid #e6ddcc;
-  border-radius: 14px;
-  padding: 22px;
-  box-shadow: 0 5px 18px #3327190d;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.article h3 {
-  line-height: 1.6;
-}
-
-.read-more {
-  border-radius: 24px;
-  padding: 10px 18px;
-  background: #205044;
-}
-
-.search {
-  border-radius: 24px;
-  padding: 14px 18px;
-}
-
-.about {
-  border: 1px solid #e6ddcc;
-  border-radius: 14px;
-  padding: 26px;
-}
-
-footer {
-  border-top: 4px solid #c7a56b;
-  padding: 30px 15px;
-}
-
-@media (min-width: 600px) {
-  .articles {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-  }
-}
   <style>
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      background: #faf7ef;
+      background: #f7f4ec;
       color: #292e29;
       font-family: "Noto Serif Bengali", "Nirmala UI",
                    "Vrinda", serif;
       line-height: 1.9;
+      overflow-wrap: break-word;
     }
 
     header {
-      background: #173e35;
-      color: white;
-      padding: 30px 16px 20px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #102f28, #245849, #173e35);
+      color: #fffdf7;
+      padding: 42px 16px 34px;
       text-align: center;
-      border-bottom: 4px solid #c9a66b;
+      border-bottom: 5px solid #c9a66b;
     }
 
     header .tagline {
@@ -112,154 +44,247 @@ footer {
     }
 
     header h1 {
-      font-size: clamp(30px, 8vw, 46px);
-      margin: 4px 0;
+      font-size: clamp(32px, 8vw, 48px);
+      margin: 8px 0;
       letter-spacing: 1px;
+      line-height: 1.5;
+      text-shadow: 0 3px 12px #00000030;
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 7px;
-      background: #214b40;
-      padding: 10px;
+      gap: 8px;
+      background: #173e35;
+      padding: 12px 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 3px 12px #00000012;
     }
 
     nav button {
       background: transparent;
-      border: 1px solid #8eac9d;
-      color: white;
-      border-radius: 20px;
-      padding: 6px 13px;
+      border: 1px solid #78988a;
+      color: #fffdf7;
+      border-radius: 24px;
+      padding: 7px 15px;
       cursor: pointer;
       font: inherit;
       font-size: 14px;
+      transition: background 0.2s, color 0.2s;
     }
 
     nav button:hover,
     nav button.active {
       background: #ead8b4;
       color: #173e35;
+      border-color: #ead8b4;
     }
 
     .hero {
       text-align: center;
-      padding: 35px 18px;
-      background: #efe7d5;
+      padding: 48px 20px;
+      background: linear-gradient(135deg, #eee4d0, #faf7ef);
+      border-bottom: 1px solid #e6ddcc;
     }
 
     .hero .eyebrow {
       color: #8a6736;
       font-size: 13px;
+      letter-spacing: 1px;
     }
 
     .hero h2 {
       color: #173e35;
-      font-size: 26px;
-      margin: 5px 0 10px;
+      font-size: clamp(23px, 5vw, 30px);
+      margin: 8px 0 14px;
+      line-height: 1.7;
     }
 
     .hero p {
-      max-width: 520px;
+      max-width: 560px;
       margin: auto;
+      color: #50574f;
     }
 
     main {
-      max-width: 850px;
+      max-width: 1000px;
       margin: auto;
-      padding: 24px 15px 40px;
+      padding: 30px 16px 48px;
     }
 
     .section-title {
       color: #173e35;
       border-bottom: 2px solid #c9a66b;
-      padding-bottom: 8px;
-      margin-top: 8px;
+      padding-bottom: 12px;
+      margin: 8px 0 22px;
+      font-size: 24px;
     }
 
     .search {
+      display: block;
       width: 100%;
-      padding: 12px 14px;
-      margin: 5px 0 22px;
-      border: 1px solid #c9c4b6;
-      border-radius: 8px;
-      background: white;
+      padding: 13px 18px;
+      margin: 5px 0 25px;
+      border: 1px solid #d9d1bf;
+      border-radius: 28px;
+      background: #fffefa;
+      color: #292e29;
       font: inherit;
       font-size: 16px;
+      outline: none;
+      box-shadow: 0 3px 12px #00000005;
+    }
+
+    .search:focus {
+      border-color: #517b68;
+      box-shadow: 0 0 0 3px #517b681a;
     }
 
     .articles {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 20px;
     }
 
     .article {
-      background: white;
-      border: 1px solid #e4dece;
-      border-radius: 10px;
-      padding: 18px;
-      box-shadow: 0 3px 12px #00000008;
+      min-width: 0;
+      background: #fffefa;
+      border: 1px solid #e6ddcc;
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 5px 18px #3327190b;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .article:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px #33271913;
     }
 
     .category {
-      color: #936c32;
+      display: inline-block;
+      color: #795b2c;
+      background: #f3ead8;
+      border-radius: 20px;
+      padding: 2px 12px;
       font-size: 13px;
     }
 
     .article h3 {
       color: #173e35;
-      margin: 5px 0;
-      font-size: 21px;
+      margin: 12px 0 5px;
+      font-size: 22px;
+      line-height: 1.7;
     }
 
     .author {
-      color: #777;
+      color: #77766d;
       font-size: 13px;
+      margin: 5px 0 14px;
     }
 
     .excerpt {
       white-space: pre-line;
+      line-height: 2;
+      color: #41453f;
+      overflow-wrap: anywhere;
     }
 
     .read-more {
       border: none;
-      border-radius: 6px;
+      border-radius: 24px;
       background: #173e35;
-      color: white;
-      padding: 9px 15px;
+      color: #fffdf7;
+      padding: 10px 18px;
       font: inherit;
       cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+
+    .read-more:hover {
+      background: #2d6351;
     }
 
     .about {
-      margin-top: 35px;
-      padding: 20px;
-      background: #efe7d5;
-      border-radius: 10px;
+      margin-top: 42px;
+      padding: 26px;
+      background: #eee6d5;
+      border: 1px solid #e3d7c0;
+      border-radius: 14px;
+      scroll-margin-top: 80px;
     }
 
     .about h2 {
       color: #173e35;
+      border-bottom: 1px solid #c9a66b;
+      padding-bottom: 10px;
+    }
+
+    .about p {
+      text-align: left;
+    }
+
+    .empty {
+      padding: 20px;
+      color: #666;
+      text-align: center;
+      background: #fffefa;
+      border-radius: 12px;
     }
 
     footer {
       background: #173e35;
       color: #f5ead5;
-      padding: 22px 15px;
+      padding: 28px 15px;
       text-align: center;
       font-size: 13px;
+      border-top: 5px solid #c9a66b;
     }
 
-    .empty {
-      padding: 15px;
-      color: #666;
+    footer p {
+      margin: 5px 0;
     }
 
     @media (min-width: 600px) {
       .articles {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .about p {
+        text-align: justify;
+      }
+    }
+
+    @media (max-width: 380px) {
+      header {
+        padding: 30px 12px 25px;
+      }
+
+      nav {
+        gap: 6px;
+        padding: 9px 5px;
+      }
+
+      nav button {
+        padding: 6px 10px;
+        font-size: 13px;
+      }
+
+      main {
+        padding: 22px 12px 35px;
+      }
+
+      .article {
+        padding: 17px;
+      }
+
+      .about {
+        padding: 18px;
       }
     }
   </style>
@@ -267,9 +292,9 @@ footer {
 
 <body>
   <header>
-    <p class="tagline">আবদুর রহমান রাসু এর সাহিত্য</p>
+    <p class="tagline">আবদুর রহমান রাসুর সাহিত্য</p>
     <h1>সাহিত্য অঙ্গন</h1>
-    <p class="tagline">শব্দে,ছন্দে ও অনুভবে</p>
+    <p class="tagline">শব্দে, ছন্দে ও অনুভবে</p>
   </header>
 
   <nav aria-label="প্রধান মেনু">
@@ -305,12 +330,11 @@ footer {
     <section class="about" id="about">
       <h2>কবি পরিচিতি</h2>
       <p>
-        
-কবি আবদুর রহমান রাসু নোয়াখালী জেলার সুবর্ণচর উপজেলার কেরামতপুর গ্রামে জন্মগ্রহণ করেন। শৈশব থেকেই ভাষা, প্রকৃতি ও মানুষের জীবনযাপনের প্রতি গভীর আগ্রহ তার সাহিত্যচর্চার ভিত গড়ে তোলে। ছাত্রজীবনেই তিনি সাহিত্যাঙ্গনে পদচারণা শুরু করেন এবং অল্প সময়ের মধ্যেই ছড়া, কবিতা, গল্প ও প্রবন্ধ রচনার মাধ্যমে নিজস্ব স্বর নির্মাণে সক্ষম হন।
+        কবি আবদুর রহমান রাসু নোয়াখালী জেলার সুবর্ণচর উপজেলার কেরামতপুর গ্রামে জন্মগ্রহণ করেন। শৈশব থেকেই ভাষা, প্রকৃতি ও মানুষের জীবনযাপনের প্রতি গভীর আগ্রহ তার সাহিত্যচর্চার ভিত গড়ে তোলে। ছাত্রজীবনেই তিনি সাহিত্যাঙ্গনে পদচারণা শুরু করেন এবং অল্প সময়ের মধ্যেই ছড়া, কবিতা, গল্প ও প্রবন্ধ রচনার মাধ্যমে নিজস্ব স্বর নির্মাণে সক্ষম হন।
 
-তার লেখা বিভিন্ন জাতীয় ও আঞ্চলিক ম্যাগাজিন, ক্রোড়পত্র এবং সমসাময়িক পত্রপত্রিকায় নিয়মিত প্রকাশিত হয়ে আসছে। তিনি কেবল লেখক হিসেবেই নন, সম্পাদনা কার্যক্রমের সঙ্গেও সক্রিয়ভাবে যুক্ত। বর্তমানে তিনি *মাসিক অজানা পথ*, আঞ্চলিক পত্রিকা *আমাদের মেঘনা* এবং *সাপ্তাহিক আলোর ঝিলিক* ম্যাগাজিনের সম্পাদক হিসেবে দায়িত্ব পালন করছেন। পাশাপাশি বিভিন্ন অনলাইন ব্লগে নিয়মিত লেখালেখির মাধ্যমে তিনি নতুন পাঠকসমাজের সঙ্গে সংযোগ স্থাপন করে চলেছেন।
+        তার লেখা বিভিন্ন জাতীয় ও আঞ্চলিক ম্যাগাজিন, ক্রোড়পত্র এবং সমসাময়িক পত্রপত্রিকায় নিয়মিত প্রকাশিত হয়ে আসছে। তিনি কেবল লেখক হিসেবেই নন, সম্পাদনা কার্যক্রমের সঙ্গেও সক্রিয়ভাবে যুক্ত। বর্তমানে তিনি মাসিক অজানা পথ, আঞ্চলিক পত্রিকা আমাদের মেঘনা এবং সাপ্তাহিক আলোর ঝিলিক ম্যাগাজিনের সম্পাদক হিসেবে দায়িত্ব পালন করছেন। পাশাপাশি বিভিন্ন অনলাইন ব্লগে নিয়মিত লেখালেখির মাধ্যমে তিনি নতুন পাঠকসমাজের সঙ্গে সংযোগ স্থাপন করে চলেছেন।
 
-শিক্ষাজীবনে তিনি নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় থেকে ইংরেজি সাহিত্য বিষয়ে স্নাতকোত্তর ডিগ্রি অর্জন করেছেন। পেশাগত জীবনে একজন ব্যাংকার হলেও সাহিত্যই তার সৃজনশীলতার প্রধান আশ্রয়। তার লেখায় সমাজবাস্তবতা, মানবিক অনুভূতি, সময়ের পরিবর্তন এবং প্রান্তিক জীবনের অনুরণন বিশেষভাবে প্রতিফলিত হয়। আধুনিক সংবেদনশীলতা ও সহজ অথচ গভীর ভাষার ব্যবহার তাকে সমকালীন তরুণ কবিদের মধ্যে স্বতন্ত্র করে তুলেছে।
+        শিক্ষাজীবনে তিনি নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় থেকে ইংরেজি সাহিত্য বিষয়ে স্নাতকোত্তর ডিগ্রি অর্জন করেছেন। পেশাগত জীবনে একজন ব্যাংকার হলেও সাহিত্যই তার সৃজনশীলতার প্রধান আশ্রয়। তার লেখায় সমাজবাস্তবতা, মানবিক অনুভূতি, সময়ের পরিবর্তন এবং প্রান্তিক জীবনের অনুরণন বিশেষভাবে প্রতিফলিত হয়। আধুনিক সংবেদনশীলতা ও সহজ অথচ গভীর ভাষার ব্যবহার তাকে সমকালীন তরুণ কবিদের মধ্যে স্বতন্ত্র করে তুলেছে।
       </p>
       <p>
         সাহিত্য হোক মানুষের অনুভূতি প্রকাশের
@@ -325,32 +349,31 @@ footer {
   </footer>
 
   <script>
-    // এখানে আপনার প্রকাশিত লেখাগুলো যোগ করবেন।
     const articles = [
       {
         title: "অনেক দূরে যেতে হবে",
         category: "কবিতা",
         author: "আবদুর রহমান রাসু",
         excerpt: "সামনে আমার অনেক পথ, অনেক দূর যেতে হবে...",
-        content: `সামনে আমার দীর্ঘ পথ, অনেক দূর যেতে হবে। 
-পাহাড়ি পথ পাড়ি দিয়ে যেতে হবে সমুদ্রের কাছে। 
-সেখানে স্নান শেষে দূরতম যে দ্বীপ তার সমীপে, 
-বসতে হবে, লাল কাঁকড়ার চরণ বিলে দিন শেষ। 
-যেতে হবে অনেক দূর, জলপথ দিয়ে সুন্দরবন ধরে, 
+        content: `সামনে আমার অনেক পথ, অনেক দূর যেতে হবে।
+পাহাড়ি পথ পাড়ি দিয়ে যেতে হবে সমুদ্রের কাছে।
+সেখানে স্নান শেষে দূরতম যে দ্বীপ তার সমীপে,
+বসতে হবে, লাল কাঁকড়ার চরণ বিলে দিন শেষ।
+যেতে হবে অনেক দূর, জলপথ দিয়ে সুন্দরবন ধরে,
 অজানা পথে এগোতে হবে, চলার পথ যত হোক দূরে।
 
-যেতে হবে নীলগিরির পথ ধরে ধূসর মেঘের কাছে, 
-যেখানে অপেক্ষায় এক নক্ষত্র, গল্প হবে তার সনে। 
-গল্প শেষে বিয়োগান্তক অনুভূতি রেখে তারার পাশে, 
-চলে যাব আলোকবর্ষ দূরে, মহাজাগতিক ভুবনে। 
-এক সীমাহীন জগৎ—সেখানে হবে ভাবনার প্রসারণ, 
+যেতে হবে নীলগিরির পথ ধরে ধূসর মেঘের কাছে,
+যেখানে অপেক্ষায় এক নক্ষত্র, গল্প হবে তার সনে।
+গল্প শেষে বিয়োগান্তক অনুভূতি রেখে তারার পাশে,
+চলে যাব আলোকবর্ষ দূরে, মহাজাগতিক ভুবনে।
+এক সীমাহীন জগৎ—সেখানে হবে ভাবনার প্রসারণ,
 শিকলবন্দি একটি জীবন পাবে অবাধ বিচরণ।
 
-সেই প্রশান্তি নিয়ে চলে যাব আরও দূরে, অসীমের পথে, 
-দূরে যেতে যেতে এবং আরও দূরে যেতে যেতে— 
-পিছু ফিরে তাকাব না, সময়ের দিকে নজর থাকবে না। 
-মনে থাকবে, আর কত দূর, কত অসীম, কোথায় ঠিকানা? 
-কদম চলবে ধীরে, দৃষ্টি কমবে, পথ বাড়বে পর্যায়ক্রমে, 
+সেই প্রশান্তি নিয়ে চলে যাব আরও দূরে, অসীমের পথে,
+দূরে যেতে যেতে এবং আরও দূরে যেতে যেতে—
+পিছু ফিরে তাকাব না, সময়ের দিকে নজর থাকবে না।
+মনে থাকবে, আর কত দূর, কত অসীম, কোথায় ঠিকানা?
+কদম চলবে ধীরে, দৃষ্টি কমবে, পথ বাড়বে পর্যায়ক্রমে,
 তবু পাড়ি দিতে হবে অসীম পথ, যেথায় শরীর থামে।`
       },
       {
@@ -362,26 +385,31 @@ footer {
 যোগ করুন। শিরোনাম ও লেখকের নাম
 নিজের প্রয়োজন অনুযায়ী পরিবর্তন করুন।`
       },
-{title: "মুখ ও মুখোশ",
-  category: "কবিতা",
-  author: "আবদুর রহমান রাসু",
-  excerpt: " ",
-  content: `
-মনে হবে এই রঙ আমার, এই চাহনি আমার, মিলিয়ে দেখ তবে—শূন্য আমি, সবই তার। আমার আছে মিছে অহম, পকেটভর্তি গর্ব, 
+      {
+        title: "মুখ ও মুখোশ",
+        category: "কবিতা",
+        author: "আবদুর রহমান রাসু",
+        excerpt: "দৃশ্যমান মুখ আর অন্তরের বাস্তবতার ব্যবধান।",
+        content: `মনে হবে এই রঙ আমার, এই চাহনি আমার,
+মিলিয়ে দেখ তবে—শূন্য আমি, সবই তার।
+আমার আছে মিছে অহম, পকেটভর্তি গর্ব,
 সব দেখানোর তরে, পাগল ওরে, আমি খর্ব।
 
-রোদ্দুরে ছায়া আছে, অন্ধকারে নেই স্থান, কৃত্রিম আলোয় যে ছবি, ভেতর তার নিষ্প্রাণ। 
-হাসি দেখতে ভোরের জবা, অবয়ব দুর্ভিক্ষের, আমার গহীনে জমেছে তৃণলতা জমিনের ৷ 
+রোদ্দুরে ছায়া আছে, অন্ধকারে নেই স্থান,
+কৃত্রিম আলোয় যে ছবি, ভেতর তার নিষ্প্রাণ।
+হাসি দেখতে ভোরের জবা, অবয়ব দুর্ভিক্ষের,
+আমার গহীনে জমেছে তৃণলতা জমিনের।
 
-একখানা মাটির ঘর, ভেতরে যায়নি জ্যোৎস্না, অথচ চাঁদের আলোতে মুখরিত পুরো মুখখানা। 
+একখানা মাটির ঘর, ভেতরে যায়নি জ্যোৎস্না,
+অথচ চাঁদের আলোতে মুখরিত পুরো মুখখানা।
 সেই মুখে মেকি হাসি, শুকনো ঠোঁটে যার স্থান,
 বাঁশির সুরে ধরা পড়ে মুখ আর হাসির ব্যবধান।
 
-দেহ আবৃত রঙিন শার্ট, ভেতরে নগ্ন শরীর, মুখোশে শরতের ভোর, আড়ালে জীবন অস্থির।
-মনে হবে জীবন বড় সুখের, অথচ ক্রন্দন চলে, 
+দেহ আবৃত রঙিন শার্ট, ভেতরে নগ্ন শরীর,
+মুখোশে শরতের ভোর, আড়ালে জীবন অস্থির।
+মনে হবে জীবন বড় সুখের, অথচ ক্রন্দন চলে,
 যা কিছু দৃশ্যমান, সবই ভ্রম—মুখোশের আড়ালে।`
-},
-
+      },
       {
         title: "সাহিত্য ও মানুষের জীবন",
         category: "প্রবন্ধ",
@@ -438,23 +466,20 @@ footer {
 
         const excerpt = document.createElement("p");
         excerpt.className = "excerpt";
-        excerpt.textContent =
-          expandedTitle === article.title
-            ? article.content
-            : article.excerpt;
+
+        const isExpanded = expandedTitle === article.title;
+        excerpt.textContent = isExpanded
+          ? article.content
+          : article.excerpt;
 
         const button = document.createElement("button");
         button.className = "read-more";
-        button.textContent =
-          expandedTitle === article.title
-            ? "সংক্ষেপে দেখুন"
-            : "সম্পূর্ণ লেখা পড়ুন";
+        button.textContent = isExpanded
+          ? "সংক্ষেপে দেখুন"
+          : "সম্পূর্ণ লেখা পড়ুন";
 
         button.addEventListener("click", () => {
-          expandedTitle =
-            expandedTitle === article.title
-              ? ""
-              : article.title;
+          expandedTitle = isExpanded ? "" : article.title;
           renderArticles();
         });
 
@@ -475,8 +500,9 @@ footer {
         selectedCategory = button.dataset.category;
         expandedTitle = "";
 
-        document.querySelectorAll("nav button")
-          .forEach(item => item.classList.remove("active"));
+        document.querySelectorAll("nav button").forEach(item => {
+          item.classList.remove("active");
+        });
 
         button.classList.add("active");
         renderArticles();
@@ -488,6 +514,7 @@ footer {
     });
 
     searchInput.addEventListener("input", renderArticles);
+
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
