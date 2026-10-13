@@ -297,7 +297,9 @@
     <button data-category="গল্প">গল্প</button>
     <button data-category="প্রবন্ধ">প্রবন্ধ</button>
     <button data-about="true">কবি পরিচিতি</button>
-  </nav>
+ 
+    <button type="button" onclick="document.getElementById('submitPanel').scrollIntoView({behavior:'smooth'})">✍️ লেখা যোগ করুন</button>
+ </nav>
 
   <section class="hero">
     <span class="eyebrow">সাহিত্যের নিজস্ব ঠিকানা</span>
@@ -768,6 +770,70 @@
       new Date().getFullYear();
 
     renderArticles();
+  </script>
+
+  <section id="submitPanel" style="max-width:700px;margin:30px auto;padding:20px;background:#fffefa;border:1px solid #c9a66b;border-radius:12px;">
+    <h2 style="color:#173e35;">✍️ নতুন লেখা যোগ করুন</h2>
+    <p>লেখার তথ্য পূরণ করে প্রিভিউ দেখুন।</p>
+
+    <form id="writingForm">
+      <label>বিভাগ</label><br>
+      <select id="writingCategory" required style="width:100%;padding:10px;margin:8px 0 16px;">
+        <option value="কবিতা">কবিতা</option>
+        <option value="গল্প">গল্প</option>
+        <option value="প্রবন্ধ">প্রবন্ধ</option>
+      </select><br>
+
+      <label>শিরোনাম</label><br>
+      <input id="writingTitle" required placeholder="লেখার শিরোনাম" style="width:100%;padding:10px;margin:8px 0 16px;"><br>
+
+      <label>লেখকের নাম</label><br>
+      <input id="writingAuthor" required value="আবদুর রহমান রাসু" style="width:100%;padding:10px;margin:8px 0 16px;"><br>
+
+      <label>ছবি নির্বাচন</label><br>
+      <input id="writingImage" type="file" accept="image/*" style="width:100%;margin:8px 0 16px;"><br>
+
+      <label>সম্পূর্ণ লেখা</label><br>
+      <textarea id="writingContent" required rows="12" placeholder="এখানে সম্পূর্ণ লেখা লিখুন বা পেস্ট করুন" style="width:100%;padding:10px;margin:8px 0 16px;box-sizing:border-box;"></textarea><br>
+
+      <button type="submit" style="background:#173e35;color:white;padding:12px 20px;border:0;border-radius:24px;">প্রিভিউ দেখুন</button>
+    </form>
+
+    <div id="writingPreview" style="display:none;margin-top:20px;padding:15px;background:#f3ead8;border-radius:8px;">
+      <h3 id="previewTitle"></h3>
+      <p id="previewInfo"></p>
+      <img id="previewImage" alt="নির্বাচিত ছবির প্রিভিউ" style="display:none;max-width:100%;height:auto;">
+      <p id="previewContent" style="white-space:pre-wrap;"></p>
+      <p>এটি শুধু প্রিভিউ। ওয়েবসাইটে প্রকাশ করতে আলাদা সংরক্ষণ প্রয়োজন।</p>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById("writingForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const category = document.getElementById("writingCategory").value;
+      const title = document.getElementById("writingTitle").value;
+      const author = document.getElementById("writingAuthor").value;
+      const content = document.getElementById("writingContent").value;
+
+      document.getElementById("previewTitle").textContent = title;
+      document.getElementById("previewInfo").textContent = category + " | " + author;
+      document.getElementById("previewContent").textContent = content;
+
+      const file = document.getElementById("writingImage").files[0];
+      const image = document.getElementById("previewImage");
+
+      if (file) {
+        image.src = URL.createObjectURL(file);
+        image.style.display = "block";
+      } else {
+        image.removeAttribute("src");
+        image.style.display = "none";
+      }
+
+      document.getElementById("writingPreview").style.display = "block";
+    });
   </script>
 </body>
 </html>
