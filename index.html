@@ -6,29 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="আবদুর রহমান রাসুর সাহিত্য পত্রিকা">
   <meta name="theme-color" content="#173e35">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="সাহিত্য অঙ্গন | আবদুর রহমান রাসু">
-  <meta property="og:description" content="কবিতা, গল্প, প্রবন্ধ ও সাহিত্যচর্চার নিজস্ব ঠিকানা।">
-  <meta property="og:url" content="https://rahmanraasu.github.io/Rahmanraasu/">
   <title>সাহিত্য অঙ্গন | আবদুর রহমান রাসু</title>
 
   <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       background: #f7f4ec;
       color: #292e29;
-      font-family: "Noto Serif Bengali", "Nirmala UI", "Vrinda", serif;
+      font-family: "Noto Serif Bengali", "Nirmala UI",
+                   "Vrinda", serif;
       line-height: 1.9;
       overflow-wrap: break-word;
     }
 
     header {
+      position: relative;
+      overflow: hidden;
       background: linear-gradient(135deg, #102f28, #245849, #173e35);
       color: #fffdf7;
-      padding: 35px 16px;
+      padding: 42px 16px 34px;
       text-align: center;
       border-bottom: 5px solid #c9a66b;
     }
@@ -42,7 +46,9 @@
     header h1 {
       font-size: clamp(32px, 8vw, 48px);
       margin: 8px 0;
+      letter-spacing: 1px;
       line-height: 1.5;
+      text-shadow: 0 3px 12px #00000030;
     }
 
     nav {
@@ -51,32 +57,35 @@
       justify-content: center;
       gap: 8px;
       background: #173e35;
-      padding: 12px 8px;
+      padding: 12px 10px;
       position: sticky;
       top: 0;
       z-index: 10;
+      box-shadow: 0 3px 12px #00000012;
     }
 
     nav button {
       background: transparent;
       border: 1px solid #78988a;
-      color: white;
+      color: #fffdf7;
       border-radius: 24px;
-      padding: 7px 14px;
+      padding: 7px 15px;
       cursor: pointer;
       font: inherit;
       font-size: 14px;
+      transition: background 0.2s, color 0.2s;
     }
 
-    nav button.active,
-    nav button:hover {
+    nav button:hover,
+    nav button.active {
       background: #ead8b4;
       color: #173e35;
+      border-color: #ead8b4;
     }
 
     .hero {
       text-align: center;
-      padding: 38px 18px;
+      padding: 48px 20px;
       background: linear-gradient(135deg, #eee4d0, #faf7ef);
       border-bottom: 1px solid #e6ddcc;
     }
@@ -84,59 +93,75 @@
     .hero .eyebrow {
       color: #8a6736;
       font-size: 13px;
+      letter-spacing: 1px;
     }
 
     .hero h2 {
       color: #173e35;
       font-size: clamp(23px, 5vw, 30px);
-      margin: 8px 0;
+      margin: 8px 0 14px;
+      line-height: 1.7;
     }
 
     .hero p {
       max-width: 560px;
       margin: auto;
+      color: #50574f;
     }
 
     main {
       max-width: 1000px;
       margin: auto;
-      padding: 26px 15px 40px;
-      min-height: 300px;
+      padding: 30px 16px 48px;
     }
 
     .section-title {
       color: #173e35;
       border-bottom: 2px solid #c9a66b;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
+      padding-bottom: 12px;
+      margin: 8px 0 22px;
+      font-size: 24px;
     }
 
     .search {
       display: block;
       width: 100%;
-      padding: 12px 16px;
-      margin: 10px 0 22px;
+      padding: 13px 18px;
+      margin: 5px 0 25px;
       border: 1px solid #d9d1bf;
-      border-radius: 25px;
-      background: white;
+      border-radius: 28px;
+      background: #fffefa;
+      color: #292e29;
       font: inherit;
       font-size: 16px;
+      outline: none;
+      box-shadow: 0 3px 12px #00000005;
+    }
+
+    .search:focus {
+      border-color: #517b68;
+      box-shadow: 0 0 0 3px #517b681a;
     }
 
     .articles {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 20px;
     }
 
-    .article,
-    .author-card {
+    .article {
       min-width: 0;
       background: #fffefa;
       border: 1px solid #e6ddcc;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 15px #3327190b;
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 5px 18px #3327190b;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .article:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px #33271913;
     }
 
     .category {
@@ -150,76 +175,43 @@
 
     .article h3 {
       color: #173e35;
-      margin: 8px 0;
-      font-size: 21px;
+      margin: 12px 0 5px;
+      font-size: 22px;
+      line-height: 1.7;
     }
 
     .author {
       color: #77766d;
       font-size: 13px;
+      margin: 5px 0 14px;
     }
 
     .excerpt {
       white-space: pre-line;
       line-height: 2;
+      color: #41453f;
+      overflow-wrap: anywhere;
     }
 
-    .read-more,
-    .author-button,
-    .back-button {
+    .read-more {
       border: none;
       border-radius: 24px;
       background: #173e35;
-      color: white;
-      padding: 9px 17px;
+      color: #fffdf7;
+      padding: 10px 18px;
       font: inherit;
       cursor: pointer;
       margin-top: 8px;
+      transition: background 0.2s;
     }
 
-    .read-more:hover,
-    .author-button:hover,
-    .back-button:hover {
+    .read-more:hover {
       background: #2d6351;
     }
 
-    .author-card {
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .author-button {
-      display: block;
-      width: 100%;
-      margin: 0;
-      padding: 16px 18px;
-      text-align: left;
-      border-radius: 0;
-      background: white;
-      color: #173e35;
-      font-size: 17px;
-      font-weight: bold;
-    }
-
-    .author-button:hover {
-      background: #eee6d5;
-      color: #173e35;
-    }
-
-    .author-count {
-      display: block;
-      font-size: 13px;
-      font-weight: normal;
-      color: #77766d;
-    }
-
-    .back-button {
-      margin: 0 0 20px;
-    }
-
     .about {
-      margin-top: 40px;
-      padding: 24px;
+      margin-top: 42px;
+      padding: 26px;
       background: #eee6d5;
       border: 1px solid #e3d7c0;
       border-radius: 14px;
@@ -232,54 +224,68 @@
       padding-bottom: 10px;
     }
 
-    .about p { text-align: left; }
-
-    .about details summary {
-      color: #173e35;
-      font-weight: bold;
-      cursor: pointer;
-      padding: 8px 0;
+    .about p {
+      text-align: left;
     }
 
     .empty {
       padding: 20px;
       color: #666;
       text-align: center;
-      background: white;
+      background: #fffefa;
       border-radius: 12px;
-    }
-
-    .share {
-      text-align: center;
-      padding: 24px 15px;
-    }
-
-    .share a {
-      display: inline-block;
-      background: #1877F2;
-      color: white;
-      padding: 10px 22px;
-      border-radius: 25px;
-      text-decoration: none;
     }
 
     footer {
       background: #173e35;
       color: #f5ead5;
-      padding: 25px 15px;
+      padding: 28px 15px;
       text-align: center;
       font-size: 13px;
       border-top: 5px solid #c9a66b;
     }
 
-    footer p { margin: 5px 0; }
+    footer p {
+      margin: 5px 0;
+    }
 
     @media (min-width: 600px) {
       .articles {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
       }
 
-      .about p { text-align: justify; }
+      .about p {
+        text-align: justify;
+      }
+    }
+
+    @media (max-width: 380px) {
+      header {
+        padding: 30px 12px 25px;
+      }
+
+      nav {
+        gap: 6px;
+        padding: 9px 5px;
+      }
+
+      nav button {
+        padding: 6px 10px;
+        font-size: 13px;
+      }
+
+      main {
+        padding: 22px 12px 35px;
+      }
+
+      .article {
+        padding: 17px;
+      }
+
+      .about {
+        padding: 18px;
+      }
     }
   </style>
 </head>
@@ -296,19 +302,20 @@
     <button data-category="কবিতা">কবিতা</button>
     <button data-category="গল্প">গল্প</button>
     <button data-category="প্রবন্ধ">প্রবন্ধ</button>
-    <button data-about="true">কবি পরিচিতি</button>
- 
-    <button type="button" onclick="document.getElementById('submitPanel').scrollIntoView({behavior:'smooth'})">✍️ লেখা যোগ করুন</button>
- </nav>
+    <button data-category="সব" data-about="true">কবি পরিচিতি</button>
+  </nav>
 
   <section class="hero">
     <span class="eyebrow">সাহিত্যের নিজস্ব ঠিকানা</span>
     <h2>সাহিত্যের অঙ্গনে স্বাগতম</h2>
-    <p>মানুষের জীবন, সমাজ, প্রেম, প্রকৃতি ও অনুভূতির কথা ছড়িয়ে পড়ুক শব্দের মাধ্যমে।</p>
+    <p>
+      মানুষের জীবন, সমাজ, প্রেম, প্রকৃতি ও
+      অনুভূতির কথা ছড়িয়ে পড়ুক শব্দের মাধ্যমে।
+    </p>
   </section>
 
   <main>
-    <h2 class="section-title" id="pageTitle">সাম্প্রতিক প্রকাশনা</h2>
+    <h2 class="section-title">সাম্প্রতিক প্রকাশনা</h2>
 
     <input
       id="search"
@@ -322,62 +329,74 @@
 
     <section class="about" id="about">
       <h2>কবি পরিচিতি</h2>
-
       <p>
-        কবি আবদুর রহমান রাসু নোয়াখালী জেলার সুবর্ণচর উপজেলার
-        কেরামতপুর গ্রামে জন্মগ্রহণ করেন। শৈশব থেকেই ভাষা,
-        প্রকৃতি ও মানুষের জীবনযাপনের প্রতি গভীর আগ্রহ তার
-        সাহিত্যচর্চার ভিত গড়ে তোলে।
-      </p>
+<section class="about" id="about">
+  <h2>কবি পরিচিতি</h2>
 
-      <details>
-        <summary>আরও পড়ুন</summary>
+  <p>
+    কবি আবদুর রহমান রাসু নোয়াখালী জেলার সুবর্ণচর উপজেলার
+    কেরামতপুর গ্রামে জন্মগ্রহণ করেন। শৈশব থেকেই ভাষা,
+    প্রকৃতি ও মানুষের জীবনযাপনের প্রতি গভীর আগ্রহ তার
+    সাহিত্যচর্চার ভিত গড়ে তোলে।
+  </p>
 
-        <p>
-          ছাত্রজীবনেই তিনি সাহিত্যাঙ্গনে পদচারণা শুরু করেন
-          এবং অল্প সময়ের মধ্যেই ছড়া, কবিতা, গল্প ও প্রবন্ধ
-          রচনার মাধ্যমে নিজস্ব স্বর নির্মাণে সক্ষম হন।
-        </p>
+  <details>
+    <summary>আরও পড়ুন</summary>
 
-        <p>
-          তার লেখা বিভিন্ন জাতীয় ও আঞ্চলিক ম্যাগাজিন,
-          ক্রোড়পত্র এবং সমসাময়িক পত্রপত্রিকায় নিয়মিত প্রকাশিত
-          হয়ে আসছে। তিনি লেখালেখির পাশাপাশি সম্পাদনা
-          কার্যক্রমের সঙ্গেও সক্রিয়ভাবে যুক্ত। বর্তমানে তিনি
-          মাসিক অজানা পথ, আমাদের মেঘনা এবং সাপ্তাহিক
-          আলোর ঝিলিক পত্রিকার সম্পাদনার দায়িত্ব পালন করছেন।
-          পাশাপাশি বিভিন্ন অনলাইন ব্লগে লেখালেখির মাধ্যমে
-          পাঠকদের সঙ্গে সংযোগ স্থাপন করে চলেছেন।
-        </p>
+    <p>
+      ছাত্রজীবনেই তিনি সাহিত্যাঙ্গনে পদচারণা শুরু করেন
+      এবং অল্প সময়ের মধ্যেই ছড়া, কবিতা, গল্প ও প্রবন্ধ
+      রচনার মাধ্যমে নিজস্ব স্বর নির্মাণে সক্ষম হন।
+    </p>
 
-        <p>
-          শিক্ষাজীবনে তিনি নোয়াখালী বিজ্ঞান ও প্রযুক্তি
-          বিশ্ববিদ্যালয় থেকে ইংরেজি সাহিত্য বিষয়ে
-          স্নাতকোত্তর ডিগ্রি অর্জন করেছেন। পেশাগত জীবনে
-          একজন ব্যাংকার হলেও সাহিত্যই তার সৃজনশীলতার
-          প্রধান আশ্রয়। তার লেখায় সমাজবাস্তবতা, মানবিক
-          অনুভূতি, সময়ের পরিবর্তন এবং প্রান্তিক জীবনের
-          অনুরণন বিশেষভাবে প্রতিফলিত হয়।
-        </p>
-      </details>
+    <p>
+      তার লেখা বিভিন্ন জাতীয় ও আঞ্চলিক ম্যাগাজিন,
+      ক্রোড়পত্র এবং সমসাময়িক পত্রপত্রিকায় নিয়মিত প্রকাশিত
+      হয়ে আসছে। তিনি কেবল লেখক হিসেবেই নন, সম্পাদনা
+      কার্যক্রমের সঙ্গেও সক্রিয়ভাবে যুক্ত। বর্তমানে তিনি
+      মাসিক অজানা পথ, আঞ্চলিক পত্রিকা আমাদের মেঘনা এবং
+      সাপ্তাহিক আলোর ঝিলিক ম্যাগাজিনের সম্পাদক হিসেবে
+      দায়িত্ব পালন করছেন। পাশাপাশি বিভিন্ন অনলাইন ব্লগে
+      নিয়মিত লেখালেখির মাধ্যমে তিনি নতুন পাঠকসমাজের
+      সঙ্গে সংযোগ স্থাপন করে চলেছেন।
+    </p>
 
-      <p>সাহিত্য হোক মানুষের অনুভূতি প্রকাশের মুক্ত প্রাঙ্গণ।</p>
+    <p>
+      শিক্ষাজীবনে তিনি নোয়াখালী বিজ্ঞান ও প্রযুক্তি
+      বিশ্ববিদ্যালয় থেকে ইংরেজি সাহিত্য বিষয়ে স্নাতকোত্তর
+      ডিগ্রি অর্জন করেছেন। পেশাগত জীবনে একজন ব্যাংকার
+      হলেও সাহিত্যই তার সৃজনশীলতার প্রধান আশ্রয়। তার
+      লেখায় সমাজবাস্তবতা, মানবিক অনুভূতি, সময়ের পরিবর্তন
+      এবং প্রান্তিক জীবনের অনুরণন বিশেষভাবে প্রতিফলিত হয়।
+      আধুনিক সংবেদনশীলতা ও সহজ অথচ গভীর ভাষার ব্যবহার
+      তাকে সমকালীন তরুণ কবিদের মধ্যে স্বতন্ত্র করে তুলেছে।
+    </p>
+  </details>
+
+  <p>
+    সাহিত্য হোক মানুষের অনুভূতি প্রকাশের মুক্ত প্রাঙ্গণ।
+  </p>
+</section>
+
     </section>
   </main>
-
-  <div class="share">
-    <p>সাহিত্য অঙ্গন বন্ধুদের সঙ্গে শেয়ার করুন</p>
-    <a
-      href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frahmanraasu.github.io%2FRahmanraasu%2F"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Facebook-এ শেয়ার করুন</a>
-  </div>
 
   <footer>
     <p>আবদুর রহমান রাসুর — সাহিত্য অঙ্গন</p>
     <p>© <span id="year"></span> সর্বস্বত্ব সংরক্ষিত</p>
-  </footer>
+ 
+<div style="text-align:center; padding:20px;">
+  <p>সাহিত্য অঙ্গন ভালো লাগলে বন্ধুদের সঙ্গে শেয়ার করুন</p>
+  <a
+    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frahmanraasu.github.io%2FRahmanraasu%2F"
+    target="_blank"
+    rel="noopener noreferrer"
+    style="display:inline-block; background:#1877F2; color:white; padding:10px 22px; border-radius:25px; text-decoration:none; font-weight:bold;"
+  >
+    Facebook-এ শেয়ার করুন
+  </a>
+</div>
+ </footer>
 
   <script>
     const articles = [
@@ -408,6 +427,15 @@
 তবু পাড়ি দিতে হবে অসীম পথ, যেথায় শরীর থামে।`
       },
       {
+        title: "জনকের দিন রাত্রি",
+        category: "গল্প",
+        author: "আবদুর রহমান রাসু",
+        excerpt: "একটি পরিবারের দিনযাপন ও বাস্তবতার গল্প।",
+        content: `এখানে আপনার অনুগল্পের সম্পূর্ণ লেখা
+যোগ করুন। শিরোনাম ও লেখকের নাম
+নিজের প্রয়োজন অনুযায়ী পরিবর্তন করুন।`
+      },
+      {
         title: "মুখ ও মুখোশ",
         category: "কবিতা",
         author: "আবদুর রহমান রাসু",
@@ -433,254 +461,41 @@
 যা কিছু দৃশ্যমান, সবই ভ্রম—মুখোশের আড়ালে।`
       },
       {
-        title: "জনকের দিন রাত্রি",
-        category: "গল্প",
-        author: "আবদুর রহমান রাসু",
-        excerpt: "একটি পরিবারের দিনযাপন ও বাস্তবতার গল্প।",
-        content: `এখানে আপনার অনুগল্পের সম্পূর্ণ লেখা যোগ করুন।`
-      },
-      {
         title: "সাহিত্য ও মানুষের জীবন",
         category: "প্রবন্ধ",
         author: "সম্পাদকীয় বিভাগ",
         excerpt: "জীবন ও সমাজকে বুঝতে সাহিত্যের ভূমিকা।",
-        content: `এখানে আপনার প্রবন্ধের সম্পূর্ণ লেখা যোগ করুন।`
+        content: `এখানে আপনার প্রবন্ধের সম্পূর্ণ লেখা
+যোগ করুন। এটি ওয়েবসাইটের নমুনা লেখা।`
       }
-   
-      {
-        title: "নিখোঁজ বিজ্ঞপ্তি",
-        category: "কবিতা",
-        author: "আবদুর রহমান রাসু",
-        excerpt: "আমি একজনকে খুঁজতেছি— যে আমাকে বলেছিল, জনম জনম আমার হয়ে থাকবে।",
-        content:`আমি একজনকে খুঁজতেছি—
-যে আমাকে বলেছিল,
-জনম জনম আমার হয়ে থাকবে।
-একটি ঘর সাজিয়ে দিবে—
-যেখানে সান্ধ্যকালীন অবসরে
-ব্যালকনির অবাধ হাওয়ায় বসে
-শোনাবে ‘ফসিলস’-এর গান।
-
-মধ্যরজনী কিংবা বিষণ্ন রাত হোক,
-সঙ্গ দিবে প্রিয় শার্টের মতো করে—
-যেটা গায়ে জড়ালে নিমেষেই
-দূর হয়ে যাবে জমে থাকা সব ক্লান্তি।
-
-জ্বর হলে উষ্ণ তাপমাত্রায়
-জড়াবে তার শরীর,
-অথবা শিয়রে বসে জলপট্টির
-ভালোবাসা দিবে বিনিদ্র রজনী।
-
-সে বলেছিল ভোরের হাওয়ায়,
-যখন বৃক্ষরাজি জেগে উঠবে,
-ভোরের বিহঙ্গ সুর তুলবে—
-তখন হাত ধরে হাঁটবে নরম দূর্বায়।
-
-ঘুরতে নিয়ে যাবে
-মেঘনার চরে;
-দুই পাশে কলমি লতার
-ফুলের মেলায় দাঁড়িয়ে
-তুলবে যুগলবন্দি হওয়ার ছবি।
-
-তাকে আমি খুঁজতেছি—
-সে যে স্বপ্ন দেখিয়েছিল
-ফ্রক পরা একটি বেবির,
-যার নাম দিয়েছিল ‘অরণি’।
-
-অথবা থাকবে একটি দেয়াল-ছবি,
-যেখানে দুইটি হাতের
-কোমল স্পর্শে থাকবে
-আরও দুইটি নরম হাত।
-
-বৃষ্টি দেখাবে বলেছিল,
-বলেছিল উদাস দুপুরে 
-কাঁচা আম মাখাবে,
-কিংবা গরম খিচুড়ির সাথে
-ডিম ভেজে দিবে বৃষ্টির দিনে।
-
-চৌকাঠে দাঁড়িয়ে অপেক্ষা
-করার কথা ছিল তার।
-মন খারাপের সময়ে
-আনন্দের অনুষঙ্গ হওয়ার
-অকাট্য প্রতিশ্রুতি দিয়েছিল।
-
-নোটপ্যাডে ত্রিরজনীর
-বাসর হওয়ার প্ল্যান লিখে দিয়ে
-সে নিখোঁজ!
-নিরুদ্দেশ হওয়ার পর থেকে
-তাকে খুঁজতেছি—
-
-আমার বেলীফুল ফুটেছে,
-কিছুদিন পর হয়তো
-রাজহাঁসের বিয়ে হবে।
-নতুন একটা উপন্যাসের
-উপসংহার লিখে ফেলছি—
-তবু সে নিখোঁজ…
-
-লিকলিকে দেহের মেয়েটি,
-যার নরম গলার স্বর,
-চোখভরা মায়া— তার সন্ধান চাই।
-`
-      },
- ];
+    ];
 
     let selectedCategory = "সব";
-    let selectedAuthor = null;
-    let selectedArticle = null;
+    let expandedTitle = "";
 
     const articleArea = document.getElementById("articles");
     const searchInput = document.getElementById("search");
-    const pageTitle = document.getElementById("pageTitle");
 
-    function makeButton(text, className, action) {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = className;
-      button.textContent = text;
-      button.addEventListener("click", action);
-      return button;
-    }
-
-    function getFilteredArticles() {
+    function renderArticles() {
       const term = searchInput.value.trim().toLowerCase();
 
-      return articles.filter(article => {
+      const filtered = articles.filter(article => {
         const categoryMatch =
           selectedCategory === "সব" ||
           article.category === selectedCategory;
 
-        const authorMatch =
-          !selectedAuthor || article.author === selectedAuthor;
-
         const searchMatch =
           (article.title + " " + article.author + " " +
-           article.content + " " + article.excerpt)
-            .toLowerCase().includes(term);
+           article.content).toLowerCase().includes(term);
 
-        return categoryMatch && authorMatch && searchMatch;
+        return categoryMatch && searchMatch;
       });
-    }
 
-    function renderArticles() {
-      articleArea.replaceChildren();
-
-      const filtered = getFilteredArticles();
-
-      if (selectedArticle) {
-        pageTitle.textContent = selectedArticle.title;
-
-        articleArea.appendChild(
-          makeButton("← লেখার তালিকায় ফিরুন", "back-button", () => {
-            selectedArticle = null;
-            renderArticles();
-          })
-        );
-
-        const card = document.createElement("article");
-        card.className = "article";
-
-        const category = document.createElement("span");
-        category.className = "category";
-        category.textContent = selectedArticle.category;
-
-        const title = document.createElement("h3");
-        title.textContent = selectedArticle.title;
-
-        const author = document.createElement("p");
-        author.className = "author";
-        author.textContent = "লেখক: " + selectedArticle.author;
-
-        const content = document.createElement("p");
-        content.className = "excerpt";
-        content.textContent = selectedArticle.content;
-
-        card.append(category, title, author, content);
-        articleArea.appendChild(card);
-        return;
-      }
-
-      if (selectedAuthor) {
-        pageTitle.textContent = selectedAuthor + " — " + selectedCategory;
-
-        articleArea.appendChild(
-          makeButton("← কবিদের তালিকায় ফিরুন", "back-button", () => {
-            selectedAuthor = null;
-            renderArticles();
-          })
-        );
-
-        if (filtered.length === 0) {
-          showEmpty();
-          return;
-        }
-
-        filtered.forEach(article => {
-          const card = document.createElement("article");
-          card.className = "article";
-
-          const category = document.createElement("span");
-          category.className = "category";
-          category.textContent = article.category;
-
-          const title = document.createElement("h3");
-          title.textContent = article.title;
-
-          const excerpt = document.createElement("p");
-          excerpt.className = "excerpt";
-          excerpt.textContent = article.excerpt;
-
-          card.append(
-            category,
-            title,
-            excerpt,
-            makeButton("সম্পূর্ণ লেখা পড়ুন", "read-more", () => {
-              selectedArticle = article;
-              renderArticles();
-            })
-          );
-
-          articleArea.appendChild(card);
-        });
-        return;
-      }
-
-      if (selectedCategory !== "সব") {
-        pageTitle.textContent = selectedCategory + " বিভাগ";
-
-        const authors = [...new Set(filtered.map(article => article.author))];
-
-        if (authors.length === 0) {
-          showEmpty();
-          return;
-        }
-
-        authors.forEach(authorName => {
-          const count = filtered.filter(
-            article => article.author === authorName
-          ).length;
-
-          const card = document.createElement("div");
-          card.className = "author-card";
-
-          const button = makeButton(authorName, "author-button", () => {
-            selectedAuthor = authorName;
-            renderArticles();
-          });
-
-          const countText = document.createElement("span");
-          countText.className = "author-count";
-          countText.textContent = count + "টি লেখা";
-
-          button.appendChild(countText);
-          card.appendChild(button);
-          articleArea.appendChild(card);
-        });
-        return;
-      }
-
-      pageTitle.textContent = "সাম্প্রতিক প্রকাশনা";
+      articleArea.innerHTML = "";
 
       if (filtered.length === 0) {
-        showEmpty();
+        articleArea.innerHTML =
+          '<p class="empty">কোনো লেখা পাওয়া যায়নি।</p>';
         return;
       }
 
@@ -688,7 +503,7 @@
         const card = document.createElement("article");
         card.className = "article";
 
-        const category = document.createElement("span");
+        const category = document.createElement("div");
         category.className = "category";
         category.textContent = article.category;
 
@@ -701,40 +516,25 @@
 
         const excerpt = document.createElement("p");
         excerpt.className = "excerpt";
-        excerpt.textContent = article.excerpt;
 
-        card.append(
-          category,
-          title,
-          author,
-          excerpt,
-          makeButton("সম্পূর্ণ লেখা পড়ুন", "read-more", () => {
-            selectedCategory = article.category;
-            selectedAuthor = article.author;
-            selectedArticle = article;
-            updateActiveMenu();
-            renderArticles();
-          })
-        );
+        const isExpanded = expandedTitle === article.title;
+        excerpt.textContent = isExpanded
+          ? article.content
+          : article.excerpt;
 
+        const button = document.createElement("button");
+        button.className = "read-more";
+        button.textContent = isExpanded
+          ? "সংক্ষেপে দেখুন"
+          : "সম্পূর্ণ লেখা পড়ুন";
+
+        button.addEventListener("click", () => {
+          expandedTitle = isExpanded ? "" : article.title;
+          renderArticles();
+        });
+
+        card.append(category, title, author, excerpt, button);
         articleArea.appendChild(card);
-      });
-    }
-
-    function showEmpty() {
-      const empty = document.createElement("p");
-      empty.className = "empty";
-      empty.textContent = "এখনো কোনো লেখা পাওয়া যায়নি।";
-      articleArea.appendChild(empty);
-    }
-
-    function updateActiveMenu() {
-      document.querySelectorAll("nav button").forEach(button => {
-        button.classList.toggle(
-          "active",
-          button.dataset.category === selectedCategory &&
-          button.dataset.about !== "true"
-        );
       });
     }
 
@@ -748,92 +548,27 @@
         }
 
         selectedCategory = button.dataset.category;
-        selectedAuthor = null;
-        selectedArticle = null;
+        expandedTitle = "";
 
-        updateActiveMenu();
+        document.querySelectorAll("nav button").forEach(item => {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
         renderArticles();
 
-        document.querySelector("main").scrollIntoView({
+        document.querySelector(".section-title").scrollIntoView({
           behavior: "smooth"
         });
       });
     });
 
-    searchInput.addEventListener("input", () => {
-      selectedAuthor = null;
-      selectedArticle = null;
-      renderArticles();
-    });
+    searchInput.addEventListener("input", renderArticles);
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
     renderArticles();
-  </script>
-
-  <section id="submitPanel" style="max-width:700px;margin:30px auto;padding:20px;background:#fffefa;border:1px solid #c9a66b;border-radius:12px;">
-    <h2 style="color:#173e35;">✍️ নতুন লেখা যোগ করুন</h2>
-    <p>লেখার তথ্য পূরণ করে প্রিভিউ দেখুন।</p>
-
-    <form id="writingForm">
-      <label>বিভাগ</label><br>
-      <select id="writingCategory" required style="width:100%;padding:10px;margin:8px 0 16px;">
-        <option value="কবিতা">কবিতা</option>
-        <option value="গল্প">গল্প</option>
-        <option value="প্রবন্ধ">প্রবন্ধ</option>
-      </select><br>
-
-      <label>শিরোনাম</label><br>
-      <input id="writingTitle" required placeholder="লেখার শিরোনাম" style="width:100%;padding:10px;margin:8px 0 16px;"><br>
-
-      <label>লেখকের নাম</label><br>
-      <input id="writingAuthor" required value="আবদুর রহমান রাসু" style="width:100%;padding:10px;margin:8px 0 16px;"><br>
-
-      <label>ছবি নির্বাচন</label><br>
-      <input id="writingImage" type="file" accept="image/*" style="width:100%;margin:8px 0 16px;"><br>
-
-      <label>সম্পূর্ণ লেখা</label><br>
-      <textarea id="writingContent" required rows="12" placeholder="এখানে সম্পূর্ণ লেখা লিখুন বা পেস্ট করুন" style="width:100%;padding:10px;margin:8px 0 16px;box-sizing:border-box;"></textarea><br>
-
-      <button type="submit" style="background:#173e35;color:white;padding:12px 20px;border:0;border-radius:24px;">প্রিভিউ দেখুন</button>
-    </form>
-
-    <div id="writingPreview" style="display:none;margin-top:20px;padding:15px;background:#f3ead8;border-radius:8px;">
-      <h3 id="previewTitle"></h3>
-      <p id="previewInfo"></p>
-      <img id="previewImage" alt="নির্বাচিত ছবির প্রিভিউ" style="display:none;max-width:100%;height:auto;">
-      <p id="previewContent" style="white-space:pre-wrap;"></p>
-      <p>এটি শুধু প্রিভিউ। ওয়েবসাইটে প্রকাশ করতে আলাদা সংরক্ষণ প্রয়োজন।</p>
-    </div>
-  </section>
-
-  <script>
-    document.getElementById("writingForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const category = document.getElementById("writingCategory").value;
-      const title = document.getElementById("writingTitle").value;
-      const author = document.getElementById("writingAuthor").value;
-      const content = document.getElementById("writingContent").value;
-
-      document.getElementById("previewTitle").textContent = title;
-      document.getElementById("previewInfo").textContent = category + " | " + author;
-      document.getElementById("previewContent").textContent = content;
-
-      const file = document.getElementById("writingImage").files[0];
-      const image = document.getElementById("previewImage");
-
-      if (file) {
-        image.src = URL.createObjectURL(file);
-        image.style.display = "block";
-      } else {
-        image.removeAttribute("src");
-        image.style.display = "none";
-      }
-
-      document.getElementById("writingPreview").style.display = "block";
-    });
   </script>
 </body>
 </html>
