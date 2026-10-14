@@ -1016,7 +1016,10 @@ Man already know that they are the  best pretty creation in the universe. Rather
 
         const author = document.createElement("p");
         author.className = "author";
-        author.textContent = "কবি: " + selectedArticle.author;
+        
+const authorLabel = selectedArticle.category === "কবিতা" ? "কবি" : "লেখক";
+author.textContent = authorLabel + ": " + selectedArticle.author;
+
 
         const content = document.createElement("p");
         content.className = "excerpt";
