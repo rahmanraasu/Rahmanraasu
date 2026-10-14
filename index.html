@@ -1169,7 +1169,68 @@ Man already know that they are the  best pretty creation in the universe. Rather
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
+    
+    // Pages CMS থেকে নতুন লেখা লোড করা
+    async function loadCmsArticles() {
+      try {
+        const response = await fetch(
+          "https://api.github.com/repos/rahmanraasu/Rahmanraasu/git/trees/main?recursive=1"
+        );
+
+        if (!response.ok) throw new Error("GitHub থেকে লেখা পাওয়া যায়নি");
+
+        const data = await response.json();
+        const files = (data.tree || []).filter(file =>
+          file.type === "blob" &&
+          file.path.startsWith("content/articles/") &&
+          file.path.endsWith(".json")
+        );
+
+        const newArticles = await Promise.all(files.map(async file => {
+          try {
+            const url =
+              "https://raw.githubusercontent.com/rahmanraasu/Rahmanraasu/main/" +
+              file.path.split("/").map(encodeURIComponent).join("/");
+
+            const result = await fetch(url);
+            if (!result.ok) return null;
+
+            const item = await result.json();
+            if (!item.title || !item.body) return null;
+
+            const body = String(item.body).trim();
+
+            return {
+              title: String(item.title).trim(),
+              category: String(item.category || "অন্যান্য").trim(),
+              author: String(item.author || "অজ্ঞাত লেখক").trim(),
+              excerpt: body.replace(/\s+/g, " ").slice(0, 120) +
+                (body.length > 120 ? "..." : ""),
+              content: body
+            };
+          } catch {
+            return null;
+          }
+        }));
+
+        newArticles.filter(Boolean).forEach(item => {
+          const exists = articles.some(old =>
+            old.title === item.title &&
+            old.author === item.author &&
+            old.category === item.category
+          );
+
+          if (!exists) articles.unshift(item);
+        });
+
+        renderArticles();
+      } catch (error) {
+        console.error("CMS লেখা লোড করতে সমস্যা:", error);
+      }
+    }
+
     renderArticles();
+    loadCmsArticles();
   </script>
 </body>
 </html>
