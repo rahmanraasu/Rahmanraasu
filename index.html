@@ -1232,5 +1232,17 @@ Man already know that they are the  best pretty creation in the universe. Rather
     renderArticles();
     loadCmsArticles();
   </script>
+  <footer id="site-footer" style="padding:28px 16px;margin-top:36px;text-align:center;background:#102a43;color:#ffffff;">
+    <div style="max-width:900px;margin:auto;">
+      <h3 style="margin:0 0 16px;">রাসু রহমান সাহিত্য পত্রিকা</h3>
+      <a href="#contact" style="display:inline-block;margin:6px 12px;color:#ffffff;text-decoration:none;">যোগাযোগ</a>
+      <a href="https://app.pagescms.org/" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin:6px 12px;color:#ffffff;text-decoration:none;">🔐 প্রশাসক প্যানেল</a>
+      <div id="contact" style="margin-top:16px;font-size:14px;">যোগাযোগের তথ্য শিগগিরই যুক্ত করা হবে।</div>
+      <p style="margin:16px 0 0;font-size:13px;">© <span id="footer-year"></span> রাসু রহমান সাহিত্য পত্রিকা</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
