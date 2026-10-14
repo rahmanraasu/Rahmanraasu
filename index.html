@@ -380,8 +380,30 @@
 <p style="text-align:center; font-size:12px; margin:8px 0;">
   <a href="https://app.pagescms.org/" target="_blank" rel="noopener noreferrer">নতুন লেখা যোগ করুন</a>
 </p>
-<p style="text-align:center; font-size:12px; margin:8px 0;">
-  <a href="mailto:rahman95t@gmail.com">যোগাযোগ</a>
+<style>
+.footer-option {
+  display: inline-block;
+  margin: 5px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  background: #245b8f;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+</style>
+
+<p style="text-align:center; margin:8px 0;">
+  <button class="footer-option"
+    onclick="document.getElementById('footer-email').style.display =
+    document.getElementById('footer-email').style.display === 'none' ? 'block' : 'none';">
+    যোগাযোগ
+  </button>
+</p>
+<p id="footer-email" style="display:none; text-align:center; font-size:12px;">
+  rahman95@gmail.com
 </p>
 </footer>
 
