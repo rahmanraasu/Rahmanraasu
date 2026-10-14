@@ -8,7 +8,9 @@ content:
     type: collection
     path: content/articles
     format: json
-    filename: "{primary}.json"
+    filename:
+  template: "{primary}.json"
+  field: create
     fields:
       - name: title
         label: লেখার শিরোনাম
